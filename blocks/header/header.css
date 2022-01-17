@@ -1,14 +1,12 @@
-.header {
-    max-width: 880px;
-    margin: 0 auto;
-    min-height: 74px;
-    padding-top: 45px;
-    position: relative;
-}
-
-@media screen and (max-width: 950px) {
-    .header {
-        padding-top: 28px;
-        min-height: 56px;
-    }
-}
+        .header {
+            max-width: 880px;
+            margin: 0 auto;
+            min-height: 74px;
+            padding-top: 45px;
+        }
+        
+        @media screen and (max-width: 950px) {
+            .header {
+                padding-top: 0;
+            }
+        }
