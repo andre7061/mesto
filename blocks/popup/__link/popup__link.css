@@ -1,7 +1,10 @@
 .popup__link {
+    background: none;
+    border: none;
     position: absolute;
-    top: -50px;
-    right: -50px;
+    top: -40px;
+    right: -45px;
+    cursor: pointer;
 }
 
 .popup__link:hover {

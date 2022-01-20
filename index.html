@@ -15,7 +15,6 @@
     <div class="wrapper">
         <header class="header">
             <img class="header__logo" src="images/Vector(5).png" alt="лого">
-            <div class="header__line"></div>
         </header>
         <main class="main">
             <section class="profile">
@@ -36,46 +35,46 @@
                 </button>
             </section>
             <section class="elements">
-                <div class="elements__element element">
+                <div class="element">
                     <img src="images/dom.jpg" alt="дом" class="element__images">
                     <div class="element__page">
                         <h2 class="element__title">Карачаевск</h2>
-                        <div class="element__vector"></div>
+                        <button class="element__vector" type="button"></button>
                     </div>
                 </div>
-                <div class="elements__element element">
+                <div class="element">
                     <img src="images/gora.jpg" alt="дом" class="element__images">
                     <div class="element__page">
                         <h2 class="element__title">Гора Эльбрус</h2>
-                        <div class="element__vector"></div>
+                        <button class="element__vector" type="button"></button>
                     </div>
                 </div>
-                <div class="elements__element element">
+                <div class="element">
                     <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="дом" class="element__images">
                     <div class="element__page">
                         <h2 class="element__title">Домбай</h2>
-                        <div class="element__vector"></div>
+                        <button class="element__vector" type="button"></button>
                     </div>
                 </div>
-                <div class="elements__element element">
+                <div class="element">
                     <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="дом" class="element__images">
                     <div class="element__page">
                         <h2 class="element__title">Гора Эльбрус</h2>
-                        <div class="element__vector"></div>
+                        <button class="element__vector" type="button"></button>
                     </div>
                 </div>
-                <div class="elements__element element">
+                <div class="element">
                     <img src="images/jlbr.jpg" alt="дом" class="element__images">
                     <div class="element__page">
                         <h2 class="element__title">Домбай</h2>
-                        <div class="element__vector"></div>
+                        <button class="element__vector" type="button"></button>
                     </div>
                 </div>
-                <div class="elements__element element">
+                <div class="element">
                     <img src="images/dom.jpg" alt="дом" class="element__images">
                     <div class="element__page">
                         <h2 class="element__title">Карачаево-Ч...</h2>
-                        <div class="element__vector"></div>
+                        <button class="element__vector"></button>
                     </div>
                 </div>
             </section>
@@ -83,19 +82,21 @@
         <footer class="footer">
             <p class="footer__title">&copy;2020 Mesto Russia</p>
         </footer>
-        <div class="popup popup_opened">
-            <form class="popup__container">
-                <a class="popup__link"><img class="popup__images" src="images/CloseIcon.svg" alt="крестик"> </a>
+        <div class="popup">
+            <form class="popup__container" name="forma">
+                <button class="popup__link" type="button">
+                    <img class="popup__images" src="images/CloseIcon.svg" alt="крестик">
+                </button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" name="user" class="popup__input">
-                <input type="text" name="proff" class="popup__input2">
+                <input type="text" name="user" class="popup__input popup__input_place_name">
+                <input type="text" name="proff" class="popup__input popup__input_place_job">
                 <button class="popup__btn" type="submit">Сохранить</button>
 
             </form>
 
         </div>
     </div>
-    <script src="./js/index.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
