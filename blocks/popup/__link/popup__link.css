@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 550px) {
     .popup__link {
-        top: -25px;
-        right: 0;
+        top: -36px;
+        right: -8px;
     }
 }
