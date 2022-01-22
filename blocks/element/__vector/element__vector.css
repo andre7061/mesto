@@ -6,6 +6,7 @@
     cursor: pointer;
     margin-right: 7px;
     border: none;
+    background-color: transparent;
 }
 
 .element__vector:hover {
