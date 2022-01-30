@@ -2,7 +2,6 @@
 <html lang="ru">
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,7 @@
 <body class="body">
     <div class="wrapper">
         <header class="header">
-            <img class="header__logo" src="images/Vector(5).png" alt="лого">
+            <img class="header__logo" src="images/Vector(5).png" alt="логотип Место">
         </header>
         <main class="main">
             <section class="profile">
@@ -23,60 +22,15 @@
                     <div class="profile__info">
                         <div class="profile__page">
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
-                            <button class="profile__edit-button" type="button">
-                                <img class="profile__edit-image" src="images/Vector(6).png" alt="ручка">
-                            </button>
+                            <button class="profile__edit-button" type="button"> </button>
                         </div>
                         <p class="profile__subtitle">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-button" type="button">
-                    <img class="profile__add-image" src="images/Vector(7).png" alt="крестик">
-                </button>
+                <button class="profile__add-button" type="button"></button>
             </section>
             <section class="elements">
-                <div class="element">
-                    <img src="images/dom.jpg" alt="дом" class="element__images">
-                    <div class="element__page">
-                        <h2 class="element__title">Карачаевск</h2>
-                        <button class="element__vector" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="images/gora.jpg" alt="дом" class="element__images">
-                    <div class="element__page">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button class="element__vector" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="дом" class="element__images">
-                    <div class="element__page">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__vector" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="дом" class="element__images">
-                    <div class="element__page">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button class="element__vector" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="images/jlbr.jpg" alt="дом" class="element__images">
-                    <div class="element__page">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__vector" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img src="images/dom.jpg" alt="дом" class="element__images">
-                    <div class="element__page">
-                        <h2 class="element__title">Карачаево-Черкесия</h2>
-                        <button class="element__vector"></button>
-                    </div>
-                </div>
+
             </section>
         </main>
         <footer class="footer">
@@ -91,11 +45,40 @@
                 <input type="text" name="user" class="popup__input popup__input_place_name">
                 <input type="text" name="proff" class="popup__input popup__input_place_job">
                 <button class="popup__btn" type="submit">Сохранить</button>
-
             </form>
 
         </div>
+        <div class="popup popup_place_add-button">
+            <form class="popup__container popup__container_place_add-button" name="add">
+                <button class="popup__link popup__link_place_add-button" type="button">
+                    <img class="popup__images popup__images_place_add-button" src="images/CloseIcon.svg" alt="крестик">
+                </button>
+                <h2 class="popup__title popup__title_place_add-button">Новое место</h2>
+                <input type="text" name="user" class="popup__input popup__input_place_title">
+                <input type="text" name="proff" class="popup__input popup__input_place_url">
+                <button class="popup__btn popup__btn_place_add-button" type="submit">Создать</button>
+            </form>
+        </div>
+        <div class="popup-images">
+            <div class="popup-images__container">
+                <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="фото города" class="popup-images__image">
+                <button class="popup-images__close-btn" type="button"> </button>
+                <h2 class="popup-images__title">Саров</h2>
+            </div>
+        </div>
+
     </div>
+    <template id="template">
+        <div class="element">
+            <img  class="element__images" alt="фото города">
+            <div class="element__page">
+                <h2 class="element__title"></h2>
+                <button class="element__vector"></button>
+            </div>
+            <button class="element__btn-del" type="button"></button>
+        </div>   
+    </template>
+
     <script src="./scripts/index.js"></script>
 </body>
 
