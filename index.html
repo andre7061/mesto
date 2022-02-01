@@ -36,11 +36,9 @@
         <footer class="footer">
             <p class="footer__title">&copy;2020 Mesto Russia</p>
         </footer>
-        <div class="popup">
-            <form class="popup__container" name="forma">
-                <button class="popup__link" type="button">
-                    <img class="popup__images" src="images/CloseIcon.svg" alt="крестик">
-                </button>
+        <div class="popup profile-popup">
+            <form class="popup__container" name="profile">
+                <button class="popup__close" type="button"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <input type="text" name="user" class="popup__input popup__input_place_name">
                 <input type="text" name="proff" class="popup__input popup__input_place_job">
@@ -48,21 +46,19 @@
             </form>
 
         </div>
-        <div class="popup popup_place_add-button">
-            <form class="popup__container popup__container_place_add-button" name="add">
-                <button class="popup__link popup__link_place_add-button" type="button">
-                    <img class="popup__images popup__images_place_add-button" src="images/CloseIcon.svg" alt="крестик">
-                </button>
-                <h2 class="popup__title popup__title_place_add-button">Новое место</h2>
-                <input type="text" name="user" class="popup__input popup__input_place_title">
-                <input type="text" name="proff" class="popup__input popup__input_place_url">
-                <button class="popup__btn popup__btn_place_add-button" type="submit">Создать</button>
+        <div class="popup edit-popup">
+            <form class="popup__container" name="edit">
+                <button class="popup__close" type="button"> </button>
+                <h2 class="popup__title">Новое место</h2>
+                <input type="text" name="user" placeholder="Название" class="popup__input popup__input_place_title">
+                <input type="text" name="proff" placeholder="Ссылка на картинку" class="popup__input popup__input_place_url">
+                <button class="popup__btn" type="submit">Создать</button>
             </form>
         </div>
-        <div class="popup-images">
+        <div class="popup popup-images">
             <div class="popup-images__container">
                 <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="фото города" class="popup-images__image">
-                <button class="popup-images__close-btn" type="button"> </button>
+                <button class="popup__close" type="button"> </button>
                 <h2 class="popup-images__title">Саров</h2>
             </div>
         </div>
