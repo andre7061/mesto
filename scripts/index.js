@@ -93,7 +93,9 @@ initialCards.forEach(function(item) {
 function createCard(titl, url) {
     const cardElement = temlate.cloneNode(true);
     cardElement.querySelector('.element__title').textContent = titl
-    cardElement.querySelector('.element__images').src = url
+    const cardImage = cardElement.querySelector('.element__images')
+    cardImage.src = url
+    cardImage.alt = titl
     addCardListeners(cardElement);
     return cardElement
 }
@@ -108,13 +110,15 @@ function closeEditPopup() {
 editOpenButton.addEventListener('click', openEditPopup);
 editCloseButton.addEventListener('click', closeEditPopup);
 
-function handleEditFormSubmit(evt) {
+function handleCardFormSubmit(evt) {
     evt.preventDefault();
     const newItem = createCard(inputTitle.value, inputUrl.value);
     conteiner.prepend(newItem);
     closeEditPopup();
+    inputTitle.value = '';
+    inputUrl.value = '';
 }
-editForm.addEventListener('submit', handleEditFormSubmit);
+editForm.addEventListener('submit', handleCardFormSubmit);
 
 function addCardListeners(el) {
     el.querySelector('.element__btn-del').addEventListener('click', delElement);
@@ -132,9 +136,10 @@ function like(e) {
 
 
 function openPopupImages(e) {
-    titlePopupImages.textContent = e.target.parentNode.querySelector('.element__title').textContent
-    openPopup(popupImages)
+    openPopup(popupImages);
+    titlePopupImages.textContent = e.target.alt;
     imagesPopupImage.src = e.target.src;
+    imagesPopupImage.alt = e.target.alt;
 }
 
 function closePopupImages() {
