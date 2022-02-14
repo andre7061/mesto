@@ -1,6 +1,7 @@
 const profileOpenButton = document.querySelector('.profile__edit-button');
 const profilePopup = document.querySelector('.profile-popup');
 const profileCloseButton = profilePopup.querySelector('.popup__close');
+const buttonProfile = profilePopup.querySelector('.popup__btn');
 const temlate = document.querySelector('#template').content;
 const conteiner = document.querySelector('.elements');
 const popupImages = document.querySelector('.popup-images')
@@ -28,14 +29,16 @@ profileCloseButton.addEventListener('click', closeProfilePopup);
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
-    popup.addEventListener('click', closePopupOverlay)
-    document.addEventListener('keydown', downKeyESC);
+    popup.addEventListener('mousedown', closePopupOverlay);
+    document.addEventListener('keydown', handleEscKey);
 
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', downKeyESC);
+    popup.removeEventListener('mousedown', closePopupOverlay);
+    document.removeEventListener('keydown', handleEscKey);
+
 
 }
 
@@ -43,15 +46,29 @@ function closeProfilePopup() {
     closePopup(profilePopup)
 }
 
+function schowWalidInput() {
+    if (nameInput.validity.valid && jobInput.validity.valid) {
+        buttonProfile.classList.remove('popup__btn_disabled');
+        buttonProfile.setAttribute('disabled', false);
+    } else {
+        buttonProfile.classList.add('popup__btn_disabled');
+        buttonProfile.setAttribute('disabled', true);
+    }
+}
+
+
 
 function openProfilePopup() {
     openPopup(profilePopup)
     nameInput.value = title.textContent;
     jobInput.value = subTitle.textContent;
-    const button = profilePopup.querySelector('.popup__btn');
-    button.classList.remove('popup__btn_disabled');
     checkInutValidate(profilePopup, nameInput, );
     checkInutValidate(profilePopup, jobInput, );
+
+    schowWalidInput()
+
+
+
 }
 
 
@@ -118,7 +135,7 @@ function openEditPopup() {
 }
 
 function closeEditPopup() {
-    closePopup(editPopup)
+    closePopup(editPopup);
 
 }
 editOpenButton.addEventListener('click', openEditPopup);
@@ -129,8 +146,12 @@ function handleCardFormSubmit(evt) {
     const newItem = createCard(inputTitle.value, inputUrl.value);
     conteiner.prepend(newItem);
     closeEditPopup();
-    inputTitle.value = '';
-    inputUrl.value = '';
+    editForm.reset()
+    const buttonEdit = editPopup.querySelector('.popup__btn');
+    console.log(buttonEdit)
+    buttonEdit.classList.add('popup__btn_disabled');
+    buttonEdit.setAttribute('disabled', true);
+
 }
 editForm.addEventListener('submit', handleCardFormSubmit);
 
@@ -157,7 +178,7 @@ function openPopupImages(e) {
 }
 
 function closePopupImages() {
-    closePopup(popupImages)
+    closePopup(popupImages);
 }
 closeBtnPopupImage.addEventListener('click', closePopupImages);
 
@@ -165,15 +186,15 @@ closeBtnPopupImage.addEventListener('click', closePopupImages);
 
 function closePopupOverlay(evt) {
     if (evt.target === evt.currentTarget) {
-        closePopup(evt.target)
-        console.log(evt.target)
+        closePopup(evt.target);
+
     }
 }
 
-function downKeyESC(evt) {
+function handleEscKey(evt) {
     if (evt.key === 'Escape') {
-        const list = Array.from(document.querySelectorAll('.popup'))
-        list.forEach(closePopup)
+        const list = Array.from(document.querySelectorAll('.popup_opened'));
+        list.forEach(closePopup);
     }
 }
 
