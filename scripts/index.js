@@ -48,10 +48,10 @@ function openProfilePopup() {
     openPopup(profilePopup)
     nameInput.value = title.textContent;
     jobInput.value = subTitle.textContent;
-    const button = profilePopup.querySelector('.popup__btn')
-    button.classList.remove('popup__btn_disabled')
-    checkInutValidate(profilePopup, nameInput, )
-    checkInutValidate(profilePopup, jobInput, )
+    const button = profilePopup.querySelector('.popup__btn');
+    button.classList.remove('popup__btn_disabled');
+    checkInutValidate(profilePopup, nameInput, );
+    checkInutValidate(profilePopup, jobInput, );
 }
 
 
