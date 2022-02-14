@@ -22,26 +22,39 @@ const subTitle = document.querySelector('.profile__subtitle');
 
 
 profileOpenButton.addEventListener('click', openProfilePopup);
+
+
 profileCloseButton.addEventListener('click', closeProfilePopup);
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    popup.addEventListener('click', closePopupOverlay)
+    document.addEventListener('keydown', downKeyESC);
 
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', downKeyESC);
+
 }
 
 function closeProfilePopup() {
     closePopup(profilePopup)
 }
 
+
 function openProfilePopup() {
     openPopup(profilePopup)
     nameInput.value = title.textContent;
     jobInput.value = subTitle.textContent;
+    const button = profilePopup.querySelector('.popup__btn')
+    button.classList.remove('popup__btn_disabled')
+    checkInutValidate(profilePopup, nameInput, )
+    checkInutValidate(profilePopup, jobInput, )
 }
+
+
 
 
 function handleProfileFormSubmit(evt) {
@@ -106,6 +119,7 @@ function openEditPopup() {
 
 function closeEditPopup() {
     closePopup(editPopup)
+
 }
 editOpenButton.addEventListener('click', openEditPopup);
 editCloseButton.addEventListener('click', closeEditPopup);
@@ -146,4 +160,21 @@ function closePopupImages() {
     closePopup(popupImages)
 }
 closeBtnPopupImage.addEventListener('click', closePopupImages);
-//////////////////
+
+
+
+function closePopupOverlay(evt) {
+    if (evt.target === evt.currentTarget) {
+        closePopup(evt.target)
+        console.log(evt.target)
+    }
+}
+
+function downKeyESC(evt) {
+    if (evt.key === 'Escape') {
+        const list = Array.from(document.querySelectorAll('.popup'))
+        list.forEach(closePopup)
+    }
+}
+
+////////////////////
