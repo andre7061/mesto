@@ -46,17 +46,6 @@ function closeProfilePopup() {
     closePopup(profilePopup)
 }
 
-function schowWalidInput() {
-    if (nameInput.validity.valid && jobInput.validity.valid) {
-        buttonProfile.classList.remove('popup__btn_disabled');
-        buttonProfile.setAttribute('disabled', false);
-    } else {
-        buttonProfile.classList.add('popup__btn_disabled');
-        buttonProfile.setAttribute('disabled', true);
-    }
-}
-
-
 
 function openProfilePopup() {
     openPopup(profilePopup)
@@ -64,11 +53,6 @@ function openProfilePopup() {
     jobInput.value = subTitle.textContent;
     checkInutValidate(profilePopup, nameInput, );
     checkInutValidate(profilePopup, jobInput, );
-
-    schowWalidInput()
-
-
-
 }
 
 
@@ -146,9 +130,8 @@ function handleCardFormSubmit(evt) {
     const newItem = createCard(inputTitle.value, inputUrl.value);
     conteiner.prepend(newItem);
     closeEditPopup();
-    editForm.reset()
-    const buttonEdit = editPopup.querySelector('.popup__btn');
-    console.log(buttonEdit)
+    editForm.reset();
+    const buttonEdit = evt.submitter;
     buttonEdit.classList.add('popup__btn_disabled');
     buttonEdit.setAttribute('disabled', true);
 
@@ -193,8 +176,9 @@ function closePopupOverlay(evt) {
 
 function handleEscKey(evt) {
     if (evt.key === 'Escape') {
-        const list = Array.from(document.querySelectorAll('.popup_opened'));
-        list.forEach(closePopup);
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
+
     }
 }
 
