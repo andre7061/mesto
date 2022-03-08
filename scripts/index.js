@@ -7,7 +7,7 @@ const profilePopup = document.querySelector('.profile-popup');
 const profileCloseButton = profilePopup.querySelector('.popup__close');
 const buttonProfile = profilePopup.querySelector('.popup__btn');
 const conteiner = document.querySelector('.elements');
-const popupImages = document.querySelector('.popup-images')
+export const popupImages = document.querySelector('.popup-images')
 const imagesPopupImage = document.querySelector('.popup-images__image');
 const editOpenButton = document.querySelector('.profile__add-button');
 const editPopup = document.querySelector('.edit-popup');
@@ -30,7 +30,7 @@ profileOpenButton.addEventListener('click', openProfilePopup);
 
 profileCloseButton.addEventListener('click', closeProfilePopup);
 
-function openPopup(popup) {
+export function openPopup(popup) {
     popup.classList.add('popup_opened');
     popup.addEventListener('mousedown', closePopupOverlay);
     document.addEventListener('keydown', handleEscKey);
@@ -140,14 +140,13 @@ function handleCardFormSubmit(evt) {
 }
 editForm.addEventListener('submit', handleCardFormSubmit);
 
-function addCardListeners(el) {
-
-
-    el.querySelector('.element__images').addEventListener('click', openPopupImages);
-}
 
 const CreatCard = (item) => {
     return new Card(item, '#template')
+}
+
+function openPopupImages(name, link) {
+    openPopup(popupImages)
 }
 
 function closePopupImages() {
