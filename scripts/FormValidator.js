@@ -35,7 +35,7 @@ export default class FormValidator {
             this._showError(input);
         }
     }
-    _setEventlisstener() {
+    _setEventLisstener() {
         this._checkButtonValidate()
         this._inputs.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
@@ -58,7 +58,7 @@ export default class FormValidator {
             evt.preventDefault();
         });
 
-        this._setEventlisstener();
+        this._setEventLisstener();
     };
 
 
