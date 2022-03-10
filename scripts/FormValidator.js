@@ -37,6 +37,7 @@ export default class FormValidator {
     }
     _setEventLisstener() {
         this._checkButtonValidate()
+
         this._inputs.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInutValidate(inputElement);
@@ -44,6 +45,9 @@ export default class FormValidator {
             })
         })
     }
+
+
+
     _checkButtonValidate = () => {
         if (this._hasInvalidInput(this._inputs)) {
             this._button.classList.add(this._inactiveButtonClass);
@@ -53,9 +57,13 @@ export default class FormValidator {
             this._button.removeAttribute("disabled", false);
         }
     }
+
+
+
     enableValidation() {
         this._formElement.addEventListener('submit', function(evt) {
             evt.preventDefault();
+
         });
 
         this._setEventLisstener();

@@ -12,6 +12,7 @@ const conteiner = document.querySelector('.elements');
 const imagesPopupImage = document.querySelector('.popup-images__image');
 const editOpenButton = document.querySelector('.profile__add-button');
 const editPopup = document.querySelector('.edit-popup');
+const btn = editPopup.querySelector('.popup__btn');
 const editCloseButton = editPopup.querySelector('.popup__close');
 const editForm = editPopup.querySelector('.popup__container')
 const inputTitle = editPopup.querySelector('.popup__input_place_title');
@@ -84,17 +85,20 @@ const initialCards = [{
 ];
 
 const renderCard = (item) => {
-    return new Card(item, '#template').generateCard();
+    return conteiner.prepend(new Card(item, '#template').generateCard());
 
 }
 
 initialCards.forEach((item) => {
 
-    conteiner.prepend(renderCard(item));
+    renderCard(item);
 })
 
 function openEditPopup() {
+    walidFormCard._checkButtonValidate()
+
     openPopup(editPopup)
+
 }
 
 function closeEditPopup() {
@@ -110,7 +114,8 @@ function handleCardFormSubmit(evt) {
         name: inputTitle.value,
         link: inputUrl.value
     }
-    conteiner.prepend(renderCard(newItem));
+    renderCard(newItem);
+
     closeEditPopup();
     editForm.reset();
 }
