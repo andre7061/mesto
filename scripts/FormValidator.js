@@ -16,6 +16,19 @@ export default class FormValidator {
         errorMessege.classList.remove(this._errorClass);
         errorMessege.textContent = ''
     }
+
+    disable() {
+        this._errorMessege.classList.add(this._errorClass);
+        this._button.setAttribute('disabled', true);
+    }
+    resetValidation() {
+        this._inputs.forEach(inputElement => {
+            this._showError(inputElement)
+        })
+
+    }
+
+
     _hedeError(input, errorMess) {
         const errorMessege = this._formElement.querySelector(`#error-${input.id}`);
         input.classList.add(this._inputErrorClass);
@@ -45,6 +58,7 @@ export default class FormValidator {
             })
         })
     }
+
 
 
 

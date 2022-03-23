@@ -2,10 +2,11 @@ import { openPopup } from "./utils.js";
 import { popupImages } from "./utils.js";
 
 export default class Card {
-    constructor(data, selectorTemplete, ) {
+    constructor(data, selectorTemplete, handleCardClick) {
         this.name = data.name;
         this.link = data.link;
         this.selectorTemplete = selectorTemplete;
+        this.handleCardClick = handleCardClick
     }
     _getTemplete() {
         const cardElement = document.querySelector(this.selectorTemplete).content.querySelector('.element').cloneNode(true);
@@ -33,7 +34,7 @@ export default class Card {
             this._pressClosse()
         })
         this._image.addEventListener('click', () => {
-            this._open()
+            this.handleCardClick({ name: this.name, link: this.link })
 
 
 
@@ -49,9 +50,9 @@ export default class Card {
         this._butonClose.closest('.element').remove();
     }
 
-    _open() {
-        openPopup(popupImages);
-        document.querySelector('.popup-images__image').src = this.link
-        document.querySelector('.popup-images__title').textContent = this.name
-    }
+    //  _open() {
+    // openPopup(popupImages);
+    // document.querySelector('.popup-images__image').src = this.link
+    //document.querySelector('.popup-images__title').textContent = this.name
+    // }
 }
