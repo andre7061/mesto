@@ -1,6 +1,3 @@
-import { openPopup } from "./utils.js";
-import { popupImages } from "./utils.js";
-
 export default class Card {
     constructor(data, selectorTemplete, handleCardClick) {
         this.name = data.name;
@@ -50,9 +47,5 @@ export default class Card {
         this._butonClose.closest('.element').remove();
     }
 
-    //  _open() {
-    // openPopup(popupImages);
-    // document.querySelector('.popup-images__image').src = this.link
-    //document.querySelector('.popup-images__title').textContent = this.name
-    // }
+
 }

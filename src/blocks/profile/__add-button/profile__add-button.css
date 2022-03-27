@@ -6,7 +6,7 @@
     border-radius: 2px;
     background: none;
     cursor: pointer;
-    background-image: url(../../../images/Vector\(7\).png);
+    background-image: url(../../../images/add.png);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -18,7 +18,7 @@
 
 @media screen and (max-width: 700px) {
     .profile__add-button {
-        background-image: url(../../../images/Vector\ \(9\).png);
+        background-image: url(../../../images/add2.png);
         width: 282px;
         margin: 0 auto;
         margin-top: 36px;
