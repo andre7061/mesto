@@ -1,6 +1,6 @@
 export default class Popup {
-    constructor(selector) {
-        this.selector = document.querySelector(selector)
+    constructor(popupSelector) {
+        this.selector = document.querySelector(popupSelector)
         this._handlerClickOverlay = this._handlerClickOverlay.bind(this)
 
         this._handleEscClose = this._handleEscClose.bind(this)
@@ -11,12 +11,12 @@ export default class Popup {
     open() {
         this.selector.classList.add('popup_opened')
         document.addEventListener('keydown', this._handleEscClose);
-        document.addEventListener('click', this._handlerClickOverlay);
+
     }
     close() {
         this.selector.classList.remove('popup_opened')
         document.removeEventListener('keydown', this._handleEscClose);
-        document.removeEventListener('click', this._handlerClickOverlay);
+
     }
     _handleEscClose(evt) {
         if (evt.key === 'Escape') {

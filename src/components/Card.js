@@ -44,7 +44,7 @@ export default class Card {
     }
 
     _pressClosse() {
-        this._butonClose.closest('.element').remove();
+        this._element.remove();
     }
 
 

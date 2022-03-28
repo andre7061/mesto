@@ -1,7 +1,7 @@
 export default class UserInfo {
-    constructor({ nameUser, aboutUser }) {
-        this._nameUser = document.querySelector(nameUser)
-        this._aboutUser = document.querySelector(aboutUser)
+    constructor({ nameElementSelector, aboutElementSelectorr }) {
+        this._nameUser = document.querySelector(nameElementSelector)
+        this._aboutUser = document.querySelector(aboutElementSelectorr)
     }
     getUserInfo() {
         const data = {
@@ -10,9 +10,10 @@ export default class UserInfo {
         }
         return data
     }
-    setUserInfo({ name, about }) {
+    setUserInfo(name, about) {
         this._nameUser.textContent = name
         this._aboutUser.textContent = about
+
 
     }
 

@@ -1,5 +1,5 @@
-import FormValidator from "../scripts/FormValidator.js";
-import Card from "../scripts/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
 import {
     popupImages,
     profileOpenButton,
@@ -15,10 +15,10 @@ import {
     subTitle,
     initialCards
 } from "../utils/constants.js";
-import Section from "../scripts/Section.js";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import UserInfo from "../scripts/UserInfo.js";
+import Section from "../components/Section.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
 import "./index.css"
 
 
@@ -35,14 +35,19 @@ function openEditPopup() {
 
 }
 
-function closeEditPopup() {
+
+
+function closeEditPopup(cardElement) {
     walidFormProfile._checkButtonValidate()
-    title.textContent = nameInput.value;
-    subTitle.textContent = jobInput.value;
+
+    userInfo.setUserInfo(nameInput.value, jobInput.value)
+
+
     popupEdit.close()
 }
 
 function openAddPopup() {
+    editForm.reset();
     walidFormCard.resetValidation()
     popupAdd.open()
 
@@ -54,10 +59,11 @@ function closeAddpopup() {
         name: inputTitle.value,
         link: inputUrl.value
     }
-    editForm.reset();
+    popupAdd.close();
     cardSection.addItem(cardCreate(item))
     walidFormCard._checkButtonValidate()
-    popupAdd.close()
+
+
 
 }
 profileOpenButton.addEventListener('click', openEditPopup);
@@ -102,8 +108,8 @@ const cardSection = new Section({
 cardSection.setItems()
     //////////////////////
 const userSelect = {
-    nameUser: '.profile__title',
-    aboutUser: '.profile__subtitle'
+    nameElementSelector: '.profile__title',
+    aboutElementSelectorr: '.profile__subtitle'
 }
 
 
