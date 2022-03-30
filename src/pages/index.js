@@ -37,10 +37,11 @@ function openEditPopup() {
 
 
 
-function closeEditPopup(cardElement) {
+function closeEditPopup(data) {
+    const { user, proff } = data
     walidFormProfile._checkButtonValidate()
 
-    userInfo.setUserInfo(nameInput.value, jobInput.value)
+    userInfo.setUserInfo(user, proff)
 
 
     popupEdit.close()
@@ -52,16 +53,21 @@ function openAddPopup() {
     popupAdd.open()
 
 }
+const item = {
+    name: inputTitle.value,
+    link: inputUrl.value
+}
 
+function closeAddpopup(data) {
+    console.log(data)
+    const item = cardCreate({
+        name: data['users'],
 
-function closeAddpopup() {
-    const item = {
-        name: inputTitle.value,
-        link: inputUrl.value
-    }
-    popupAdd.close();
-    cardSection.addItem(cardCreate(item))
+        link: data['proffs']
+    })
+    cardSection.addItem(item);
     walidFormCard._checkButtonValidate()
+    popupAdd.close();
 
 
 
