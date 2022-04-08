@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+.popup__btn-delete { margin-top: ; }meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>Место</title>
+<title>Место</title>
 </head>
 
 <body class="body">
@@ -18,7 +13,9 @@
         <main class="main">
             <section class="profile">
                 <div class="profile__wraper">
-                    <img class="profile__avatar-images" src="<%=require('./images/logo.jpg')%>" alt="лого">
+                    <div class="profile__images-wrapper">
+                        <img class="profile__avatar-images" src="<%=require('./images/logo.jpg')%>" alt="лого">
+                    </div>
                     <div class="profile__info">
                         <div class="profile__page">
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -66,6 +63,22 @@
                 <h2 class="popup-images__title">Саров</h2>
             </div>
         </div>
+        <div class="popup delete-popup">
+            <form class="popup__container popup__container-delete" name="edit" novalidate>
+                <button class="popup__close" type="button"> </button>
+                <h2 class="popup__title">Вы уверены?</h2>
+                <button class="popup__btn popup__btn-delete" type="submit">Да</button>
+            </form>
+        </div>
+        <div class="popup avatar-popup">
+            <form class="popup__container popup__container-avatar" name="edit" novalidate>
+                <button class="popup__close" type="button"> </button>
+                <h2 class="popup__title">Обновить аватар</h2>
+                <input type="url" name="proffs" placeholder="https://somewebsite.com/someimage.jpg" action="#" id="url" class="popup__input popup__input_place_avatart" required>
+                <span class="popup__input-error" id="error-url"></span>
+                <button class="popup__btn" type="submit">Сохранить</button>
+            </form>
+        </div>
 
     </div>
     <template id="template">
@@ -73,7 +86,10 @@
             <img  class="element__images" alt="фото города">
             <div class="element__page">
                 <h2 class="element__title"></h2>
-                <button class="element__vector"></button>
+                <div class="element__like-wrapper">
+                   <button class="element__vector"></button>               
+                  <span class="element__vector-count"></span>
+                </div>
             </div>
             <button class="element__btn-del" type="button"></button>
         </div>   
