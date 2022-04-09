@@ -8,8 +8,7 @@ class Api {
         return fetch(`${this._baseUrl}/users/me`, {
                 headers: this._headers
             })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._checkResponse)
     }
 
     getInitialCards() {
@@ -17,8 +16,7 @@ class Api {
                 headers: this._headers,
 
             })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._checkResponse)
     }
 
     editProfile(name, about) {
@@ -30,8 +28,7 @@ class Api {
                     about
                 })
             })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._checkResponse)
     }
     addCards(name, link) {
         return fetch(`${this._baseUrl}/cards`, {
@@ -42,8 +39,7 @@ class Api {
                     link
                 })
             })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._checkResponse)
     }
     deleteCards(id) {
         return fetch(`${this._baseUrl}/cards/${id}`, {
@@ -51,8 +47,7 @@ class Api {
                 headers: this._headers,
 
             })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._checkResponse)
     }
     deleteLike(id) {
         return fetch(`${this._baseUrl}/cards/${id}/likes`, {
@@ -60,8 +55,7 @@ class Api {
                 headers: this._headers,
 
             })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._checkResponse)
     }
 
 
@@ -71,8 +65,7 @@ class Api {
                 headers: this._headers,
 
             })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._checkResponse)
     }
 
     profileCards(data) {
@@ -81,17 +74,20 @@ class Api {
                 headers: this._headers,
                 body: JSON.stringify({
                     avatar: data.proffs
-
                 })
             })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._checkResponse)
+    }
+    _checkResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
     }
 
 
-
-
 }
+
 
 export const api = new Api({
     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-39',

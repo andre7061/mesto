@@ -49,12 +49,12 @@ export default class FormValidator {
         }
     }
     _setEventLisstener() {
-        this._checkButtonValidate()
+        this.checkButtonValidate()
 
         this._inputs.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInutValidate(inputElement);
-                this._checkButtonValidate()
+                this.checkButtonValidate()
             })
         })
     }
@@ -62,7 +62,7 @@ export default class FormValidator {
 
 
 
-    _checkButtonValidate = () => {
+    checkButtonValidate = () => {
         if (this._hasInvalidInput(this._inputs)) {
             this._button.classList.add(this._inactiveButtonClass);
             this._button.setAttribute('disabled', true);
