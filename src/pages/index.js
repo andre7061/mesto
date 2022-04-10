@@ -141,17 +141,18 @@ function cardCreate(item) {
             deletePopup.open();
 
             deletePopup.changeSubmitHandler(() => {
-                    api.deleteCards(id)
-                        .then(res => {
-                            // console.log(res)
-                            deletePopup.close();
-                            cardItem.pressClosse()
+                api.deleteCards(id)
+                    .then(res => {
+                        // console.log(res)
+                        deletePopup.close();
+                        cardItem.pressClosse()
 
-                        })
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            })
+
 
         },
         (id) => {
@@ -164,6 +165,7 @@ function cardCreate(item) {
                     .catch((err) => {
                         console.log(err)
                     })
+
             } else {
                 api.addLike(id)
                     .then(res => {
@@ -173,8 +175,13 @@ function cardCreate(item) {
                     .catch((err) => {
                         console.log(err)
                     })
+
             }
         }
+
+
+
+
     )
 
 
