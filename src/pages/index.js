@@ -141,14 +141,17 @@ function cardCreate(item) {
             deletePopup.open();
 
             deletePopup.changeSubmitHandler(() => {
-                api.deleteCards(id)
-                    .then(res => {
-                        // console.log(res)
-                        deletePopup.close();
-                        cardItem.pressClosse()
+                    api.deleteCards(id)
+                        .then(res => {
+                            // console.log(res)
+                            deletePopup.close();
+                            cardItem.pressClosse()
 
-                    })
-            })
+                        })
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
 
         },
         (id) => {
@@ -158,11 +161,17 @@ function cardCreate(item) {
                         cardItem.setLike(res.likes)
 
                     })
+                    .catch((err) => {
+                        console.log(err)
+                    })
             } else {
                 api.addLike(id)
                     .then(res => {
                         cardItem.setLike(res.likes)
 
+                    })
+                    .catch((err) => {
+                        console.log(err)
                     })
             }
         }
@@ -199,8 +208,14 @@ const closeAvatarPopup = (data) => {
             console.log(res.avatar)
             userInfo.setAvatar(res)
             avatarPopup.close()
-            avatarPopup.loader(false)
+
         })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            avatarPopup.loader(false)
+        });
 
 }
 
